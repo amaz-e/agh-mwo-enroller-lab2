@@ -1,8 +1,11 @@
 package com.company.enroller.persistence;
 
 import com.company.enroller.model.Meeting;
+import com.company.enroller.model.Participant;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;
@@ -21,5 +24,11 @@ public class MeetingService {
 		Query query = this.session.createQuery(hql);
 		return query.list();
 	}
+
+	public Meeting getMeetingbyID(long meetingId) {
+
+		return session.get(Meeting.class, meetingId);
+	}
+
 
 }
