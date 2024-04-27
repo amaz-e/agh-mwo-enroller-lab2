@@ -24,7 +24,7 @@ public class ParticipantService {
 
     public Collection<Participant> getAll(String orderBy, String sortOrder, String login) {
         if (!sortOrder.equals("DESC")) {sortOrder="ASC";}
-        if (!sortOrder.equals("login")) {sortOrder="login";}
+        if (!orderBy.equals("login")) {orderBy="login";}
         String hql = "FROM Participant WHERE login LIKE :loginValue ORDER BY " +orderBy + " " + sortOrder ;
 
         Query query = connector.getSession().createQuery(hql);
